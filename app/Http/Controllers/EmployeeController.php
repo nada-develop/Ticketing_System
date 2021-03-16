@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Employee;
+use App\Models\City;
+use App\Models\Department;
+use App\Models\User;
+
 class EmployeeController extends Controller
 {
     public function index(){
@@ -12,7 +16,10 @@ class EmployeeController extends Controller
     }
 
     public function create(){
-        return view('employees.new');
+        $city = City::all();
+        $department = Department::all();
+        $user = User::all();
+        return view('employees.new',compact('city','department','user'));
     }
 
     public function store(){
@@ -31,8 +38,11 @@ class EmployeeController extends Controller
     }
 
     public function edit($id){
+        $city = City::all();
+        $department = Department::all();
+        $user = User::all();
         $emp = Employee::find($id);
-        return view('employees.edit',compact('emp'));
+        return view('employees.edit',compact('emp','city','department','user'));
     }
 
     public function update($id){

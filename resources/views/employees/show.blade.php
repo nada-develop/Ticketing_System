@@ -19,9 +19,9 @@ show Employee
             <li>{{ $employee->email }}</li>
             <li>{{ $employee->address }}</li>
             <li>{{ $employee->hiring_date }}</li>
-            <li>{{ $employee->city_id }}</li>
-            <li>{{ $employee->department_id }}</li>
-            <li>{{ $employee->user_id }}</li>
+            <li>{{ $employee->city->city_name }}</li>
+            <li>{{ $employee->department->name }}</li>
+            <li>{{ $employee->user->name}}</li>
         </ul>
     </div>
 @endsection
